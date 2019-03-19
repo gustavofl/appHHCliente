@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import colors from '../styles/colors';
-import {Platform, StyleSheet, Text, View, ImageBackground, ScrollView } from 'react-native';
+import {Platform, StyleSheet, Text, View, ImageBackground, ScrollView, TextInput } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class AreaAnuncio extends Component {
   render() {
     return (
-      <View style={{marginHorizontal:9, marginVertical:3, paddingBottom: 5, paddingLeft: 13, backgroundColor: this.props.cor}}>
+      <View style={{marginHorizontal:9, marginVertical:5, paddingBottom: 5, paddingLeft: 13, backgroundColor: this.props.cor}}>
         <View>
           <Text style={{fontSize: 35, fontWeight: 'bold', color: 'black'}}>{this.props.titulo}</Text>
         </View>
@@ -33,6 +34,26 @@ class Destaques extends Component {
   }
 }
 
+class Header extends Component {
+  render() {
+    return (
+      <View style={{flexDirection: 'row'}}>
+        <Icon name="bars" size={38} color="black" style={{margin: 8}} />
+        <TextInput style={{
+                          height:'80%', 
+                          width: '85%', 
+                          borderWidth:2, 
+                          margin:3, 
+                          borderColor: colors.bordaTextInput,
+                          borderRadius: 18,
+                          fontSize: 22,
+                          paddingLeft: 10,
+                          color: "black"}} placeholder="RESTAURANTES, BARES, SHOWS, WORKSHOPS..." />
+      </View>
+    );
+  }
+}
+
 export default class TelaDestaquesMapa extends Component {
   render() {
     return (
@@ -40,6 +61,7 @@ export default class TelaDestaquesMapa extends Component {
         style={{flex:1, alignSelf: 'stretch', height: undefined, width: undefined, left:0}}
         source={require('../img/mapa_garanhuns.png')}
       >
+        <Header />
         <Destaques />
       </ImageBackground>
     );

@@ -1,4 +1,5 @@
 export default {
     cinzaEscuro: '#bbb',
-    cinzaClaro: '#ddd'
+    cinzaClaro: '#ddd',
+    bordaTextInput: '#777'
 }
